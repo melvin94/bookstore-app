@@ -1,0 +1,10 @@
+table
+    tr
+        th
+            strong Title
+        th
+            strong Author
+    - @books.each do |book|
+        tr
+            td = link_to book.name, book_path(book)
+            td = link_to book.author.author, author_path(book.author)

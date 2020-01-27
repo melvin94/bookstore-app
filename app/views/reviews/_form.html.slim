@@ -1,0 +1,9 @@
+= form_with(model: @review, local: true) do |form|
+    p
+        = form.label :review
+        br
+        = form.text_area :review
+        = form.hidden_field :user_id, value: current_user.id
+        = form.hidden_field :book_id, value: @book.id
+    p
+        = form.submit

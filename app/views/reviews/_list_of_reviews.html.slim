@@ -1,0 +1,11 @@
+h2 Reviews
+- if current_user
+    = link_to 'Write a review', new_review_path('book_id': @book)
+- @book.reviews.order(created_at: :desc).each do |review|
+    p
+        = "Review by #{User.find(review.user_id).first_name} #{User.find(review.user_id).last_name} "
+        - if current_user && review.user_id == current_user.id
+            = link_to '(Edit)', edit_review_path('book_id': @book, 'id': review )
+        br
+        i = "#{review.created_at}"
+        br = review.review

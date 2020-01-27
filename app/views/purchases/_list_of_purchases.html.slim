@@ -1,0 +1,21 @@
+h2 Purchased Books
+table
+    tr
+        th
+            strong Date of Purchase
+        th
+            strong Title
+        th
+            strong Author
+        th
+            strong Genre
+    - current_user.purchases.order(id: :desc).each do |purchase|
+        tr
+            td
+                = purchase.created_at.to_date
+            td
+                = Book.find(purchase.book_id).name
+            td
+                = Book.find(purchase.book_id).author.author
+            td
+                = Book.find(purchase.book_id).genre.name

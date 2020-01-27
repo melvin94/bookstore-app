@@ -1,0 +1,13 @@
+h1 User Profile Page
+
+p
+    = link_to 'Edit', edit_user_registration_path
+    br   
+    'First name:
+    = current_user.first_name
+    br
+    'Last name:
+    = current_user.last_name
+    br
+    'Email:
+    = current_user.email

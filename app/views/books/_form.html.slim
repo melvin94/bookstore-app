@@ -1,0 +1,21 @@
+= form_with(model: @book, local: true) do |form|
+    .field
+        = form.label :name, 'Title of Book'
+        = form.text_field :name
+    .field
+        = form.label :author_id
+        = form.collection_select :author_id, Author.all.order(:author), :id, :author, include_blank: true
+        = link_to '(New)', new_author_path
+    .field
+        = form.label :genre_id
+        = form.collection_select :genre_id, Genre.all.order(:name), :id, :name, include_blank: true
+        = link_to '(New)', new_genre_path
+    .field
+        = form.label :description
+        = form.text_area :description
+    .field
+        = form.label :published_date
+        = form.date_field :published_date
+    .actions
+        = form.submit
+    p = link_to 'Back', :back

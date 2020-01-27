@@ -1,0 +1,10 @@
+= form_with(model: @author, local: true) do |form|
+    - if @error
+        p That author already exists in the database
+    .field
+        = form.label :author
+        = form.text_field :author
+    .actions
+        = form.submit
+
+    p = link_to 'Back', :back

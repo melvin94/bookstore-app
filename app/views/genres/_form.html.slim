@@ -1,0 +1,10 @@
+= form_with(model: @genre, local: true) do |form|
+    - if @error
+        p That genre already exists in the database
+    .field
+        = form.label :name
+        = form.text_field :name
+    .actions
+        = form.submit
+
+    p = link_to 'Back', :back        

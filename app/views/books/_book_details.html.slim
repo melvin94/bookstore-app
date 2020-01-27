@@ -1,0 +1,28 @@
+table
+    tr
+        td
+            strong Title:
+        td #{@book.name}
+    tr
+        td
+            strong Author:
+        td #{@book.author.author}
+    tr
+        td
+            strong Genre:
+        td #{@book.genre.name}
+    tr
+        td
+            strong Published:
+        td #{@book.published_date.to_date}
+    tr
+        td
+            strong Added by:
+        td #{@book.user.email}
+    tr
+        td
+            strong Description:
+        td #{@book.description}
+
+- if current_user
+    = button_to 'PURCHASE', purchases_path('purchase': {'book_id': @book}), method: :post

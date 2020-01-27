@@ -1,0 +1,7 @@
+h1 List of Authors in database
+table
+    - @authors.order(:author).each do |author|
+        tr
+            td = link_to author.author, author_path(author)
+            - if current_user
+                td = link_to 'Edit', edit_author_path(author)

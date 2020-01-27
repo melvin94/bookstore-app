@@ -1,0 +1,27 @@
+p
+    = "Add: "
+    = link_to 'Book', new_book_path
+    = " "
+    = link_to 'Genre', new_genre_path
+    = " "   
+    = link_to 'Author', new_author_path
+
+h2 My Books
+table
+    tr
+        th
+            strong Title
+        th
+            strong Author
+        th
+            strong Genre
+    - current_user.books.where(user: current_user).order(:name).each do |book|
+        tr
+            td
+                = book.name
+            td
+                = book.author.author
+            td
+                = book.genre.name
+            td
+                = link_to 'Edit', edit_book_path(book)
